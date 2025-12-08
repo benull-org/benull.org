@@ -92,7 +92,7 @@ export const deriveSharedSecret = async (ownPrivateKey: CryptoKey, peerPublicKey
         name: 'AES-GCM', // Algorithm for the derived key
         length: 256,    // Key length for AES-256
       },
-      false, // Derived key should NOT be extractable for security
+      true, // Derived key MUST be extractable to generate Safety Number (fingerprint)
       ['encrypt', 'decrypt'] // Usages for the derived AES key
     );
   } catch (error) {

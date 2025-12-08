@@ -8,6 +8,20 @@ import Sidebar from './components/Sidebar';
 import LandingPage from './components/LandingPage';
 import CookieConsent from './components/CookieConsent';
 
+const handleUpdate = async () => {
+  if ('serviceWorker' in navigator) {
+    const registrations = await navigator.serviceWorker.getRegistrations();
+    for (const registration of registrations) {
+      await registration.unregister();
+    }
+  }
+  if ('caches' in window) {
+    const keys = await caches.keys();
+    await Promise.all(keys.map(key => caches.delete(key)));
+  }
+  window.location.reload();
+};
+
 const UpdateBanner: React.FC = () => {
   const { updateAvailable } = useChat();
   if (!updateAvailable) return null;
@@ -19,7 +33,7 @@ const UpdateBanner: React.FC = () => {
         <strong>System Update Available.</strong>&nbsp;New security protocols ready.
       </span>
       <button
-        onClick={() => window.location.reload()}
+        onClick={handleUpdate}
         className="bg-[#00FF41] text-black px-4 py-1 rounded-full text-xs font-bold hover:bg-[#00CC33] transition-colors shadow-[0_0_10px_rgba(0,255,65,0.3)]"
       >
         Initialize Update
@@ -35,7 +49,7 @@ const AppContent: React.FC = () => {
   // 404 Check
   if (window.location.pathname !== '/') {
     return (
-      <div className="flex flex-col items-center justify-center h-screen bg-[#050505] text-white p-6 text-center">
+      <div className="flex flex-col items-center justify-center h-[100dvh] bg-[#050505] text-white p-6 text-center">
         <h1 className="text-6xl font-bold text-[#00FF41] mb-4">404</h1>
         <p className="text-xl text-[#86868b] mb-8">Not Found. We let it be null.</p>
         <a href="/" className="text-[#00FF41] hover:underline">Return Home</a>
@@ -46,7 +60,7 @@ const AppContent: React.FC = () => {
   // Chat Ended Check
   if (chatEnded) {
     return (
-      <div className="flex flex-col items-center justify-center h-screen bg-[#050505] text-white p-6 text-center animate-fade-in">
+      <div className="flex flex-col items-center justify-center h-[100dvh] bg-[#050505] text-white p-6 text-center animate-fade-in">
         <h1 className="text-4xl font-bold text-white mb-2">Chat Ended.</h1>
         <p className="text-sm italic text-[#86868b] mb-8">Let it be null.</p>
         <button
@@ -61,7 +75,7 @@ const AppContent: React.FC = () => {
 
   if (updateRequired) {
     return (
-      <div className="flex flex-col items-center justify-center h-screen bg-[#050505] text-white p-6 text-center">
+      <div className="flex flex-col items-center justify-center h-[100dvh] bg-[#050505] text-white p-6 text-center">
         <div className="bg-[#1A1A1A] p-10 rounded-[24px] border border-red-500/30 max-w-md shadow-2xl">
           <h1 className="text-3xl font-bold text-red-500 mb-4 tracking-tight">Critical Update Required</h1>
           <p className="text-[#86868b] mb-8 leading-relaxed">
@@ -69,7 +83,7 @@ const AppContent: React.FC = () => {
             Security protocols require an immediate update to continue.
           </p>
           <button
-            onClick={() => window.location.reload()}
+            onClick={handleUpdate}
             className="px-8 py-4 bg-red-600 hover:bg-red-700 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(220,38,38,0.4)]"
           >
             Install Update
@@ -80,7 +94,7 @@ const AppContent: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col h-screen bg-[#050505] text-[#F5F5F7] overflow-hidden">
+    <div className="flex flex-col h-[100dvh] bg-[#050505] text-[#F5F5F7] overflow-hidden">
       <Header onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)} />
 
       {/* Soft Update Banner */}
