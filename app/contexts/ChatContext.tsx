@@ -104,6 +104,13 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const pendingTargetUserRef = useRef<string | null>(null);
   const activeTransfersRef = useRef<Record<string, FileTransferState>>({});
 
+  // Moved hooks to top level
+  const isSendingRef = useRef(false);
+  const [typingUsers, setTypingUsers] = useState<string[]>([]);
+  const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [updateRequired, setUpdateRequired] = useState(false);
+  const [updateAvailable, setUpdateAvailable] = useState(false);
+
   // Track processed transfers to prevent duplicates (Persistent across renders)
   // Track processed transfers to prevent duplicates (Persistent across renders)
   const processedTransferIds = useRef(new Set<string>());
@@ -263,7 +270,9 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   // Track sending state to prevent double clicks
-  const isSendingRef = useRef(false);
+  // Track sending state to prevent double clicks
+  // isSendingRef moved to top
+
 
   const startFileTransfer = async (file: File, targetSocketId: string) => {
     if (!socketRef.current || isSendingRef.current) return;
@@ -1385,10 +1394,8 @@ export const ChatProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     setFileOffers((prev: Array<{ senderSocketId: string, fileMetadata: any }>) => prev.filter((o: { senderSocketId: string }) => o.senderSocketId !== senderSocketId));
   };
 
-  const [typingUsers, setTypingUsers] = useState<string[]>([]);
-  const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const [updateRequired, setUpdateRequired] = useState(false);
-  const [updateAvailable, setUpdateAvailable] = useState(false);
+  // Hooks moved to top
+
 
   const sendTyping = (isTyping: boolean) => {
     if (!socketRef.current) return;
