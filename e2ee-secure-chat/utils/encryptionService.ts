@@ -23,7 +23,7 @@ export const base64ToArrayBuffer = (base64: string): ArrayBuffer => {
 };
 
 export const uint8ArrayToBase64 = (arr: Uint8Array): string => {
-  return arrayBufferToBase64(arr.buffer);
+  return arrayBufferToBase64(arr.buffer as ArrayBuffer);
 };
 
 export const base64ToUint8Array = (base64: string): Uint8Array => {
@@ -112,7 +112,7 @@ export const encryptText = async (
     const encryptedBuffer = await crypto.subtle.encrypt(
       {
         name: 'AES-GCM',
-        iv: iv,
+        iv: iv as unknown as BufferSource,
       },
       aesKey,
       encodedText
@@ -140,10 +140,10 @@ export const decryptText = async (
     const decryptedBuffer = await crypto.subtle.decrypt(
       {
         name: 'AES-GCM',
-        iv: iv,
+        iv: iv as unknown as BufferSource,
       },
       aesKey,
-      encryptedData
+      encryptedData as unknown as BufferSource
     );
 
     return new TextDecoder().decode(decryptedBuffer);
