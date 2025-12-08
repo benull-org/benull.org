@@ -28,7 +28,7 @@ const io = new Server(server, {
 
 // --- Version Control ---
 const MIN_SUPPORTED_VERSION = '1.0.0'; // Oldest allowed version (Force Update)
-const LATEST_VERSION = '1.0.1';        // Current latest version (Soft Update)
+const LATEST_VERSION = '1.1.0';        // Current latest version (Soft Update)
 
 // --- State Management ---
 // Store room state: roomId -> Set<UserObject>

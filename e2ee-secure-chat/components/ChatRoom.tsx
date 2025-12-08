@@ -26,7 +26,8 @@ const ChatRoom: React.FC = () => {
     activeUsers,
     activeTransfers, startFileTransfer, acceptFileTransfer, declineFileTransfer, cancelTransfer,
     activeChatTarget,
-    typingUsers, sendTyping
+    typingUsers, sendTyping,
+    userIdentity
   } = useChat();
 
   const [inputText, setInputText] = useState('');
@@ -49,6 +50,47 @@ const ChatRoom: React.FC = () => {
         setInputText('');
       } catch (error) {
         console.error("Error sending message:", error);
+      }
+    }
+  };
+
+  const [showToast, setShowToast] = useState(false);
+
+  const handleShare = async () => {
+    const isRoom = activeChatTarget === 'ROOM';
+    const shareUrl = new URL(window.location.href);
+
+    if (isRoom) {
+      shareUrl.searchParams.set('room', roomId || '');
+    } else {
+      shareUrl.searchParams.set('dm', userIdentity?.username || '');
+    }
+
+    const shareTitle = isRoom ? `Join Room: ${roomId}` : `Chat with ${userIdentity?.username}`;
+    const shareText = isRoom
+      ? `Join me in the secure room "${roomId}" on benull.`
+      : `Chat with me securely on benull. My username is "${userIdentity?.username}".`;
+
+    const fullUrl = shareUrl.toString();
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: shareTitle,
+          text: shareText,
+          url: fullUrl
+        });
+      } catch (err) {
+        console.error('Error sharing:', err);
+      }
+    } else {
+      // Fallback to clipboard
+      try {
+        await navigator.clipboard.writeText(`${shareText} ${fullUrl}`);
+        setShowToast(true);
+        setTimeout(() => setShowToast(false), 2000);
+      } catch (err) {
+        console.error('Failed to copy:', err);
       }
     }
   };
@@ -138,6 +180,16 @@ const ChatRoom: React.FC = () => {
               <div className="flex items-center truncate">
                 <span className="mr-2 text-[#86868b] flex-shrink-0">#</span>
                 <span className="truncate tracking-tight">{roomId === 'Direct Chat' ? 'Direct Chat' : roomId}</span>
+                {/* Share Button for Room - Placed next to name */}
+                <button
+                  onClick={handleShare}
+                  className="ml-3 p-1.5 bg-[#1A1A1A] hover:bg-[#333] text-[#86868b] hover:text-white rounded-full transition-colors border border-[#333]"
+                  title="Share Room Link"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                  </svg>
+                </button>
               </div>
             ) : (
               <div className="flex items-center truncate">
@@ -157,14 +209,28 @@ const ChatRoom: React.FC = () => {
             )}
           </div>
         </div>
-        {activeChatTarget !== 'ROOM' && (
-          <button
-            onClick={() => useChat().closeDirectChat(activeChatTarget)}
-            className="px-4 py-1.5 bg-[#1A1A1A] hover:bg-[#333] text-white text-xs font-medium rounded-full transition-colors border border-[#333]"
-          >
-            End Chat
-          </button>
-        )}
+        <div className="flex items-center gap-2">
+          {/* Share Button for Direct Chat - Kept in actions area */}
+          {activeChatTarget !== 'ROOM' && (
+            <button
+              onClick={handleShare}
+              className="p-2 bg-[#1A1A1A] hover:bg-[#333] text-[#86868b] hover:text-white rounded-full transition-colors border border-[#333]"
+              title="Share Direct Chat Link"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+              </svg>
+            </button>
+          )}
+          {activeChatTarget !== 'ROOM' && (
+            <button
+              onClick={() => useChat().closeDirectChat(activeChatTarget)}
+              className="px-4 py-1.5 bg-[#1A1A1A] hover:bg-[#333] text-white text-xs font-medium rounded-full transition-colors border border-[#333]"
+            >
+              End Chat
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Active File Transfers */}
@@ -351,6 +417,15 @@ const ChatRoom: React.FC = () => {
           <span className="text-[10px] text-[#444] font-mono tracking-tighter">{cryptoStatusMessage}</span>
         </div>
       </div>
+      {/* Toast Notification */}
+      {showToast && (
+        <div className="absolute top-20 right-4 bg-[#00FF41] text-black px-4 py-2 rounded-lg shadow-[0_0_10px_#00FF41] font-bold text-sm animate-fade-in-down z-50 flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+          </svg>
+          Link Copied!
+        </div>
+      )}
     </div >
   );
 };

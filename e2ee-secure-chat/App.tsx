@@ -113,7 +113,11 @@ const AppContent: React.FC = () => {
 import NexusStatus from './components/NexusStatus';
 
 const App: React.FC = () => {
-  const [showLanding, setShowLanding] = React.useState(true);
+  // Check if we have auto-join params
+  const params = new URLSearchParams(window.location.search);
+  const hasAutoJoin = params.has('room') || params.has('dm');
+
+  const [showLanding, setShowLanding] = React.useState(!hasAutoJoin);
   const [showNexusStatus, setShowNexusStatus] = React.useState(false);
 
   if (showNexusStatus) {
