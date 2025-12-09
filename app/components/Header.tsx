@@ -34,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
           )}
 
           <h1 className="text-xl font-bold text-white tracking-tight flex items-center">
-            <span className="text-[#00FF41] mr-2 text-2xl">Ø</span>
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='25' fill='%23000000'/%3E%3Ctext x='50' y='58' dominant-baseline='central' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold' font-size='75' fill='%2300FF41'%3EØ%3C/text%3E%3C/svg%3E" alt="benull logo" className="w-8 h-8 mr-2 rounded-lg" />
             benull
           </h1>
           {roomId && (
