@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Just Be Null. | Secure Serverless Chat</title>
+    <title>Just be null.</title>
     <meta name="description" content="End-to-end encrypted, serverless communication. Speak freely, leave no trace.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
     <style>
         :root {
             --void-black: #050505;
@@ -257,6 +259,30 @@
         </div>
     </section>
 
+    <!-- Download / PWA Section -->
+    <!-- Launch Section -->
+    <section class="py-24 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8 text-white">Ready to vanish?</h2>
+            <p class="text-xl text-[#86868b] mb-12 max-w-2xl mx-auto">
+                No installation required. Works in your browser. <br class="hidden md:block" />
+                Install as a PWA from the app if you prefer.
+            </p>
+
+            <a href="https://app.benull.org/"
+                class="inline-flex items-center gap-3 px-10 py-5 bg-[#1A1A1A] text-white rounded-full font-bold text-xl border border-[#333] hover:bg-[#333] hover:border-[#39FF14] transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(57,255,20,0.2)] group">
+                <span class="group-hover:text-[#39FF14] transition-colors">Launch App</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="transition-transform group-hover:translate-x-1">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="py-12 px-6 border-t border-white/5 bg-[#050505] text-sm">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
@@ -278,6 +304,7 @@
             </div>
         </div>
     </footer>
+
 </body>
 
 </html>

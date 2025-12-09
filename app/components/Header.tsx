@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useChat } from '../contexts/ChatContext';
+import InstallButton from './InstallButton';
 
 interface HeaderProps {
   onToggleSidebar?: () => void;
@@ -44,6 +45,9 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
         </div>
 
         <div className="flex items-center space-x-6">
+          {/* Install Button */}
+          <InstallButton />
+
           {/* Crypto Status */}
           <div className="hidden md:flex items-center space-x-2">
             <div className={`w-1.5 h-1.5 rounded-full ${cryptoStatusMessage?.includes('Active') || cryptoStatusMessage?.includes('Connected') || cryptoStatusMessage === 'Online' ? 'bg-[#00FF41] shadow-[0_0_8px_#00FF41]' : 'bg-yellow-500'} animate-pulse`}></div>

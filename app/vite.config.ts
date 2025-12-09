@@ -22,6 +22,10 @@ export default defineConfig({
             type: 'image/svg+xml'
           }
         ]
+      },
+      devOptions: {
+        enabled: true,
+        type: 'module',
       }
     })
   ],
