@@ -2,6 +2,6 @@
     "name": "benull-org-root",
     "private": true,
     "scripts": {
-        "build": "npm install --prefix app && npm run build --prefix app && mkdir -p dist && cp index.html dist/ && cp favicon.svg dist/ && cp icon.svg dist/ && cp -r app/dist dist/app"
+        "build": "npm install --prefix app && npm run build --prefix app && mkdir -p dist && cp index.html dist/ && cp favicon.svg dist/ && cp -r app/dist dist/app"
     }
 }

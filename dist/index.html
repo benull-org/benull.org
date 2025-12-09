@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just be null.</title>
+    <meta name="description" content="End-to-end encrypted, serverless communication. Speak freely, leave no trace.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='25' fill='%23000000'/%3E%3Ctext x='50' y='58' dominant-baseline='central' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold' font-size='75' fill='%2300FF41'%3EØ%3C/text%3E%3C/svg%3E">
+
+    <style>
+        :root {
+            --void-black: #050505;
+            --tungsten: #1A1A1A;
+            --starlight-text: #F5F5F7;
+            --signal-green: #00FF41;
+            --kryptonite-green: #39FF14;
+        }
+
+        body {
+            background-color: var(--void-black);
+            color: var(--starlight-text);
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection {
+            background-color: var(--kryptonite-green);
+            color: black;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-premium {
+            background: rgba(26, 26, 26, 0.4);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animate-laser {
+            animation: laser 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+
+        @keyframes laser {
+            0% {
+                width: 0%;
+                opacity: 0;
+            }
+
+            10%,
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                width: 100%;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gradient-to-b from-[#050505] via-[#0a0a0a] to-[#000000] overflow-x-hidden">
+
+    <!-- Header -->
+    <header
+        class="fixed top-0 left-0 right-0 z-50 px-6 py-4 flex justify-between items-center bg-[#050505]/80 backdrop-blur-md border-b border-white/5">
+        <div class="flex items-center">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='25' fill='%23000000'/%3E%3Ctext x='50' y='58' dominant-baseline='central' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold' font-size='75' fill='%2300FF41'%3EØ%3C/text%3E%3C/svg%3E"
+                alt="benull logo" class="w-8 h-8 mr-2 rounded-lg">
+            <span class="text-2xl font-bold tracking-tight text-white">benull</span>
+            <span class="text-[#39FF14] text-2xl leading-none">.</span>
+        </div>
+        <a href="https://github.com/benull-org" target="_blank" rel="noopener noreferrer"
+            class="flex items-center gap-2 text-[#86868b] hover:text-white transition-colors">
+            <span class="hidden md:inline text-sm font-medium">github.com/benull-org</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                </path>
+            </svg>
+        </a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex flex-col items-center justify-center text-center px-4 pt-20 pb-10">
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#39FF14]/5 rounded-full blur-[100px] animate-pulse">
+            </div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto space-y-8">
+            <h1
+                class="text-6xl md:text-8xl font-bold tracking-tighter leading-tight bg-gradient-to-b from-white to-[#86868b] bg-clip-text text-transparent animate-float">
+                Speak Freely.<br />Leave No Trace.
+            </h1>
+            <p class="text-xl md:text-2xl text-[#86868b] font-light max-w-2xl mx-auto">
+                End-to-end encrypted, serverless communication. <br class="hidden md:block" />
+                Exists only in the moment.
+            </p>
+
+            <a href="https://app.benull.org/"
+                class="group relative px-8 py-4 bg-white text-black rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] flex items-center mx-auto gap-2 w-fit">
+                Start Secure Chat
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                    class="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+            </a>
+        </div>
+
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center">
+            <div
+                class="flex flex-wrap justify-center gap-4 text-xs md:text-sm text-[#444] font-medium uppercase tracking-widest">
+                <span>Powered by WebRTC</span>
+                <span class="text-[#39FF14]">•</span>
+                <span>AES-GCM 256-bit Encryption</span>
+                <span class="text-[#39FF14]">•</span>
+                <span>No Database</span>
+                <span class="text-[#39FF14]">•</span>
+                <span>Open Source</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Infographic -->
+    <section class="py-24 px-4 bg-[#0a0a0a] relative overflow-hidden">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-white">The Invisible Tunnel</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left Side -->
+                <div class="glass-panel p-8 rounded-3xl opacity-50 hover:opacity-100 transition-opacity duration-500">
+                    <div class="text-center mb-8">
+                        <h3 class="text-xl font-bold text-[#86868b] mb-2">Others</h3>
+                        <p class="text-sm text-[#666]">Centralized. Stored. Vulnerable.</p>
+                    </div>
+                    <div class="flex justify-between items-center relative h-32">
+                        <div class="flex flex-col items-center z-10">
+                            <div class="w-12 h-12 rounded-full bg-[#333] flex items-center justify-center mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="#666" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-center z-10">
+                            <div
+                                class="w-16 h-16 rounded-xl bg-[#222] border border-red-900/30 flex items-center justify-center mb-2 relative">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                                    <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                                    <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                                </svg>
+                                <div
+                                    class="absolute -top-2 -right-2 w-6 h-6 bg-red-900/80 rounded-full flex items-center justify-center border border-red-500">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                        fill="none" stroke="white" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-center z-10">
+                            <div class="w-12 h-12 rounded-full bg-[#333] flex items-center justify-center mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="#666" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="absolute top-1/2 left-12 right-1/2 h-[1px] bg-red-900/50 -translate-y-8"></div>
+                        <div class="absolute top-1/2 left-1/2 right-12 h-[1px] bg-red-900/50 -translate-y-8"></div>
+                    </div>
+                </div>
+
+                <!-- Right Side -->
+                <div class="glass-premium p-8 rounded-3xl border-[#39FF14]/20 shadow-[0_0_30px_rgba(57,255,20,0.05)]">
+                    <div class="text-center mb-8">
+                        <h3 class="text-xl font-bold text-white mb-2 flex items-center justify-center gap-2">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='25' fill='%23000000'/%3E%3Ctext x='50' y='58' dominant-baseline='central' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold' font-size='75' fill='%2300FF41'%3EØ%3C/text%3E%3C/svg%3E"
+                                alt="benull logo" class="w-6 h-6 inline-block mr-1 rounded-md">
+                            benull<span class="text-[#39FF14]">.</span>
+                        </h3>
+                        <p class="text-sm text-[#39FF14]">Direct. Encrypted. Ephemeral.</p>
+                    </div>
+                    <div class="flex justify-between items-center relative h-32">
+                        <div class="flex flex-col items-center z-10">
+                            <div
+                                class="w-12 h-12 rounded-full bg-[#39FF14]/10 border border-[#39FF14]/30 flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(57,255,20,0.2)]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="#39FF14" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-center z-10 animate-pulse">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#050505] border border-[#39FF14] flex items-center justify-center shadow-[0_0_20px_rgba(57,255,20,0.4)]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#39FF14" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-center z-10">
+                            <div
+                                class="w-12 h-12 rounded-full bg-[#39FF14]/10 border border-[#39FF14]/30 flex items-center justify-center mb-2 shadow-[0_0_15px_rgba(57,255,20,0.2)]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="#39FF14" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute top-1/2 left-14 right-14 h-[2px] bg-[#39FF14]/20 -translate-y-6 overflow-hidden">
+                            <div class="h-full bg-[#39FF14] animate-laser shadow-[0_0_10px_#39FF14]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download / PWA Section -->
+    <!-- Launch Section -->
+    <section class="py-24 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8 text-white">Ready to vanish?</h2>
+            <p class="text-xl text-[#86868b] mb-12 max-w-2xl mx-auto">
+                No installation required. Works in your browser. <br class="hidden md:block" />
+                Install as a PWA from the app if you prefer.
+            </p>
+
+            <a href="https://app.benull.org/"
+                class="inline-flex items-center gap-3 px-10 py-5 bg-[#1A1A1A] text-white rounded-full font-bold text-xl border border-[#333] hover:bg-[#333] hover:border-[#39FF14] transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(57,255,20,0.2)] group">
+                <span class="group-hover:text-[#39FF14] transition-colors">Launch App</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="transition-transform group-hover:translate-x-1">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-white/5 bg-[#050505] text-sm">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <h4 class="font-bold text-white mb-1 flex items-center justify-center md:justify-start"><img
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='25' fill='%23000000'/%3E%3Ctext x='50' y='58' dominant-baseline='central' text-anchor='middle' font-family='Arial, sans-serif' font-weight='bold' font-size='75' fill='%2300FF41'%3EØ%3C/text%3E%3C/svg%3E"
+                        alt="benull logo" class="w-5 h-5 mr-2 rounded"> benull.</h4>
+                <p class="text-[#666]">Designed for silence.</p>
+            </div>
+            <div class="flex gap-8 text-[#86868b]">
+                <a href="https://github.com/benull-org" class="hover:text-white transition-colors">GitHub</a>
+                <a href="https://www.facebook.com/profile.php?id=61584506919173"
+                    class="hover:text-white transition-colors">Facebook</a>
+                <a href="mailto:dev@benull.org" class="hover:text-white transition-colors">Contact</a>
+                <a href="https://app.benull.org/?status=true" class="hover:text-white transition-colors">Nexus
+                    Status</a>
+            </div>
+            <div class="text-[#444] text-xs">
+                © 2025 benull.org. Open source and auditable.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
