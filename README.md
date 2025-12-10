@@ -2,7 +2,8 @@
 
 > **Speak Freely. Leave No Trace.**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](e2ee-secure-chat/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 [![Website](https://img.shields.io/badge/Website-benull.org-39FF14)](https://benull.org/)
 [![Facebook](https://img.shields.io/badge/Facebook-benull.-blue)](https://www.facebook.com/profile.php?id=61584506919173)
 
@@ -65,13 +66,23 @@
 1. **Clone the repository**
    ```bash
    git clone https://github.com/benull-org/e2ee-secure-chat.git
-   cd e2ee-secure-chat
+   cd benull.org
    ```
 
 2. **Install Dependencies**
+
+   The project is divided into 3 main parts:
+   - `app`: The main chat application
+   - `page`: The landing page
+   - `nexus`: The signaling server
+
    ```bash
-   # Install Client dependencies
-   cd e2ee-secure-chat
+   # Install App dependencies
+   cd app
+   npm install
+
+   # Install Landing Page dependencies
+   cd ../page
    npm install
 
    # Install Nexus (Signaling) dependencies
@@ -80,29 +91,36 @@
    ```
 
 3. **Configuration**
-   - Copy `.env.example` to `.env` in the `e2ee-secure-chat` directory.
+   - Copy `.env.example` to `.env` in the `app` directory.
    ```bash
-   cd ../e2ee-secure-chat
+   cd ../app
    cp .env.example .env
    ```
 
 4. **Run Locally**
-   You need to run both the signaling nexus and the client.
+   You need to run the signaling nexus and the client components.
 
-   **Terminal 1 (Nexus):**
+   **Terminal 1 (Nexus - Signaling Server):**
    ```bash
    cd nexus
    npm start
    ```
 
-   **Terminal 2 (Client):**
+   **Terminal 2 (App - Chat Client):**
    ```bash
-   cd e2ee-secure-chat
+   cd app
+   npm run dev
+   ```
+
+   **Terminal 3 (Page - Landing Page):**
+   ```bash
+   cd page
    npm run dev
    ```
 
 5. **Open in Browser**
-   Visit `http://localhost:5173`
+   - App: `http://localhost:5173`
+   - Landing Page: `http://localhost:5174` (or similar, check terminal output)
 
 ---
 
