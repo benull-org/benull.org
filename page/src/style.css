@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+    --color-void-black: #050505;
+    --color-tungsten: #1A1A1A;
+    --color-starlight-text: #F5F5F7;
+    --color-signal-green: #00FF41;
+    --color-kryptonite-green: #39FF14;
+
+    --font-sans: Inter, sans-serif;
+
+    --animate-float: float 6s ease-in-out infinite;
+    --animate-laser: laser 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+
+    @keyframes float {
+
+        0%,
+        100% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    @keyframes laser {
+        0% {
+            width: 0%;
+            opacity: 0;
+        }
+
+        10%,
+        90% {
+            opacity: 1;
+        }
+
+        100% {
+            width: 100%;
+            opacity: 0;
+        }
+    }
+}
+
+@layer utilities {
+    .glass-panel {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .glass-premium {
+        background: rgba(26, 26, 26, 0.4);
+        backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+}
