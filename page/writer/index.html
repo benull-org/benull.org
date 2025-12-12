@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>benull. Writer Panel</title>
+    <link rel="stylesheet" href="/src/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <a href="#" class="logo">benull<span>.writer</span></a>
+            <div class="actions">
+                <input type="file" id="image-upload" accept="image/*" class="hidden">
+                <button id="insert-image-btn">Insert Image</button>
+                <button id="export-btn" class="primary">Export JSON</button>
+            </div>
+        </header>
+
+        <main id="app">
+            <!-- Views will be injected here -->
+            <div id="view-list">
+                <div class="actions" style="margin-bottom: 2rem; justify-content: flex-end;">
+                    <button id="create-btn" class="primary">+ New Article</button>
+                </div>
+                <div id="article-list" class="article-list"></div>
+            </div>
+
+            <div id="view-editor" class="hidden">
+                <div class="actions" style="margin-bottom: 1rem; justify-content: space-between;">
+                    <button id="back-btn">&larr; Back</button>
+                    <div class="actions">
+                        <button id="delete-btn" style="color: #ff4444; border-color: #ff4444;">Delete</button>
+                        <button id="save-btn" class="primary">Save Draft</button>
+                    </div>
+                </div>
+                <input type="text" id="editor-title" class="editor-title" placeholder="Article Title" />
+                <input type="text" id="editor-slug" class="editor-slug" placeholder="slug-url-friendly"
+                    style="font-size: 0.9rem; color: #86868b; border: none; padding: 0.5rem; margin-bottom: 1rem; width: 100%; background: transparent;" />
+                <textarea id="editor-content" class="editor-content"
+                    placeholder="Write your content here..."></textarea>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+/* Base styles similar to main app */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+:root {
+    --color-primary: #39FF14;
+    --color-bg: #050505;
+    --color-text: #ffffff;
+    --color-text-dim: #86868b;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 2rem;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--color-primary);
+}
+
+button {
+    background: transparent;
+    color: var(--color-text-dim);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+button:hover {
+    color: white;
+    border-color: white;
+}
+
+button.primary {
+    background: var(--color-primary);
+    color: black;
+    border: none;
+    font-weight: bold;
+}
+
+button.primary:hover {
+    background: white;
+}
+
+input,
+textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 1rem;
+    border-radius: 4px;
+    font-family: inherit;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.editor-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.editor-content {
+    min-height: 500px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.article-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.article-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article-item:hover {
+    border-color: rgba(57, 255, 20, 0.3);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+}
