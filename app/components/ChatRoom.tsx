@@ -358,7 +358,7 @@ const ChatRoom: React.FC = () => {
 
       {/* Input Area */}
       <div className="p-4 bg-[#050505] border-t border-[#1A1A1A]">
-        <form onSubmit={handleSendMessage} className="flex items-center space-x-3">
+        <form onSubmit={handleSendMessage} className="flex items-center space-x-2 sm:space-x-3">
           <input
             type="file"
             ref={fileInputRef}
@@ -368,7 +368,7 @@ const ChatRoom: React.FC = () => {
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="p-3 text-[#86868b] hover:text-white transition-colors rounded-full hover:bg-[#1A1A1A]"
+            className="p-3 text-[#86868b] hover:text-white transition-colors rounded-full hover:bg-[#1A1A1A] flex-shrink-0"
             title="Attach File"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -400,13 +400,13 @@ const ChatRoom: React.FC = () => {
               }
             }}
             placeholder={activeChatTarget === 'ROOM' ? "Message #General..." : `Message ${targetUser?.username || 'User'}...`}
-            className="flex-grow px-5 py-3 bg-[#1A1A1A] border border-[#333] rounded-full text-white placeholder-[#555] focus:outline-none focus:ring-1 focus:ring-white focus:border-white transition-all"
+            className="flex-grow min-w-0 px-5 py-3 bg-[#1A1A1A] border border-[#333] rounded-full text-white placeholder-[#555] focus:outline-none focus:ring-1 focus:ring-white focus:border-white transition-all"
           />
 
           <button
             type="submit"
             disabled={!inputText.trim()}
-            className="p-3 bg-white hover:bg-gray-200 text-black rounded-full shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-transform transform hover:scale-105 disabled:opacity-50 disabled:scale-100 disabled:shadow-none"
+            className="p-3 bg-white hover:bg-gray-200 text-black rounded-full shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-transform transform hover:scale-105 disabled:opacity-50 disabled:scale-100 disabled:shadow-none flex-shrink-0"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
               <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
