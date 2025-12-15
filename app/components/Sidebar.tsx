@@ -97,9 +97,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                                 value={targetRoom}
                                 onChange={(e) => setTargetRoom(e.target.value)}
                                 placeholder="Switch Room..."
-                                className="flex-1 bg-[#0A0A0A] text-white text-xs px-3 py-2.5 rounded-l-lg border border-[#333] focus:outline-none focus:border-white transition-colors placeholder-[#444]"
+                                className="flex-1 min-w-0 bg-[#0A0A0A] text-white text-xs px-3 py-2.5 rounded-l-lg border border-[#333] focus:outline-none focus:border-white transition-colors placeholder-[#444]"
                             />
-                            <button type="submit" className="bg-[#1A1A1A] text-white text-xs px-3 py-2 rounded-r-lg border-y border-r border-[#333] hover:bg-white hover:text-black transition-colors font-medium">
+                            <button type="submit" className="bg-[#1A1A1A] text-white text-xs px-3 py-2 rounded-r-lg border-y border-r border-[#333] hover:bg-white hover:text-black transition-colors font-medium flex-shrink-0">
                                 Join
                             </button>
                         </form>
@@ -109,9 +109,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                                 value={targetUser}
                                 onChange={(e) => setTargetUser(e.target.value)}
                                 placeholder="DM User..."
-                                className="flex-1 bg-[#0A0A0A] text-white text-xs px-3 py-2.5 rounded-l-lg border border-[#333] focus:outline-none focus:border-[#00FF41] transition-colors placeholder-[#444]"
+                                className="flex-1 min-w-0 bg-[#0A0A0A] text-white text-xs px-3 py-2.5 rounded-l-lg border border-[#333] focus:outline-none focus:border-[#00FF41] transition-colors placeholder-[#444]"
                             />
-                            <button type="submit" className="bg-[#1A1A1A] text-[#00FF41] text-xs px-3 py-2 rounded-r-lg border-y border-r border-[#333] hover:bg-[#00FF41] hover:text-black transition-colors font-medium">
+                            <button type="submit" className="bg-[#1A1A1A] text-[#00FF41] text-xs px-3 py-2 rounded-r-lg border-y border-r border-[#333] hover:bg-[#00FF41] hover:text-black transition-colors font-medium flex-shrink-0">
                                 Chat
                             </button>
                         </form>
